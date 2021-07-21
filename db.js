@@ -5,12 +5,12 @@ let db;
 
 async function connectToDb() {
   //const url = process.env.DB_URL || 'mongodb://localhost/issuetracker';
-  const url = process.env.DB_URL;
+  const url = process.env.DB_URL || 'mongodb://localhost/issuetracker';
+  console.log(url);
   const client = new MongoClient(url, { useNewUrlParser: true });
   await client.connect();
   console.log('Connected to MongoDB at', url);
   db = client.db();
-  console.log(db);
 }
 
 async function getNextSequence(name) {

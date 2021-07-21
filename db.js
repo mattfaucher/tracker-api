@@ -10,6 +10,7 @@ async function connectToDb() {
   await client.connect();
   console.log('Connected to MongoDB at', url);
   db = client.db();
+  console.log(db);
 }
 
 async function getNextSequence(name) {

@@ -78,6 +78,7 @@ routes.post('/user', (req, res) => {
 function mustBeSignedIn(resolver) {
   return (root, args, { user }) => {
     if (!user || !user.signedIn) {
+      console.log(resolver, root, args, user);
       throw new AuthenticationError('You must be signed in');
     }
     return resolver(root, args, { user });

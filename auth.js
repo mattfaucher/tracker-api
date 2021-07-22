@@ -25,8 +25,6 @@ routes.use(cors({ origin, credentials: true }));
 
 function getUser(req) {
   const token = req.cookies.jwt;
-  console.log('TOKEN');
-  console.log(token);
   if (!token) return { signedIn: false };
 
   try {
